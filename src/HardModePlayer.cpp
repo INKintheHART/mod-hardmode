@@ -21,7 +21,7 @@ public:
 		// Delete player items
              if (Item* pItem = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
              {
-                  if (pItem->GetTemplate()
+                  if (pItem->GetTemplate())
                       continue;
                   uint8 slot = pItem->GetSlot();
                   // ChatHandler(player->GetSession()).PSendSysMessage("|cffDA70D6You have lost your |cffffffff|Hitem:%d:0:0:0:0:0:0:0:0|h[%s]|h|r", pItem->GetEntry(), pItem->GetTemplate()->Name1.c_str());
