@@ -30,9 +30,7 @@ public:
               }
 		
     	}
-    }
-    void OnPlayerReleasedGhost(Player *player) override	
-    {
+	    
         for (uint8 slot = EQUIPMENT_SLOT_START; slot < EQUIPMENT_SLOT_END; ++slot)
         {
             Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, slot);
