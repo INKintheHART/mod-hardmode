@@ -13,8 +13,8 @@ class HardModePlayer : public PlayerScript
 {
 public:
     HardModePlayer() : PlayerScript("HardModePlayer") { }
-
-    void OnPlayerKilledByCreature(Creature* /*killer*/, Player* player) override	
+    //OnPlayerKilledByCreature
+    void OnPlayerReleasedGhost(Creature* /*killer*/, Player* player) override	
     {
         for (uint8 i = 0; i < EQUIPMENT_SLOT_END; ++i)
         {
@@ -30,6 +30,7 @@ public:
               }
 		
     	}
+    }
     void OnPlayerReleasedGhost(Player *player) override	
     {
         for (uint8 slot = EQUIPMENT_SLOT_START; slot < EQUIPMENT_SLOT_END; ++slot)
