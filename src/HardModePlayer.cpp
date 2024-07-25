@@ -38,7 +38,7 @@ public:
             {
                 // Remove the equipped item
                 player->DestroyItem(item->GetBagSlot(), item->GetSlot(), true);
-                sLog->outDebug(LOG_FILTER_SERVER_LOADING, "Removed equipped item: %u", item->GetEntry());
+
             }
         }
 	    
@@ -52,12 +52,10 @@ public:
                 {
                     // Remove the item from the inventory
                     player->DestroyItem(bagSlot, slot, true);
-                    sLog->outDebug(LOG_FILTER_SERVER_LOADING, "Removed inventory item: %u", item->GetEntry());
+
                 }
             }
-        }
-
-        player->SendBroadcastMessage("All equipped items and inventory items have been removed.");  
+        }  
         player->SetMoney(0);
 	player->AddItem(2092, 1); // dagger
         player->AddItem(148, 1); // shirt
