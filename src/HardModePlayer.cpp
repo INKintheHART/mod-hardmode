@@ -13,19 +13,21 @@ public:
     //OnPlayerKilledByCreature(Creature* /*killer*/, Player* player) 
     void OnPlayerReleasedGhost(Player *player) override
     {		
-	for (uint8 b= INVENTORY_SLOT_ITEM_START; b < INVENTORY_SLOT_ITEM_END; b++)
+	for (uint8 b= INVENTORY_SLOT_ITEM_START; b < INVENTORY_SLOT_ITEM_END; b++) // Iterate each backpack slot
 	{
-		player->DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
+		player->DestroyItem(INVENTORY_SLOT_BAG_0, b, true); // Delete item
 	}
 
-	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
+	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++) //iterate each equipped container
 	{	
-		player->DestroyItem(INVENTORY_SLOT_BAG_0, c, true);
+		for (uint8 c = INVENTORY_SLOT_Start; i < MAX_BAG_SIZE; i++) //iterate each container slot
+		{
+			player->DestroyItem(c, i, true); // delete
 	}
 	    // Equipment
-        for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++)
+        for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++) //iterate each equipment slot
         {
-                player->DestroyItem(INVENTORY_SLOT_BAG_0, d, true);
+                player->DestroyItem(INVENTORY_SLOT_BAG_0, d, true); // delete
 	}
 
         player->SetMoney(0);
