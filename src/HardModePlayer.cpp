@@ -29,33 +29,18 @@ public:
 
               }
 		
-    	}
-	    
-        for (uint8 slot = EQUIPMENT_SLOT_START; slot < EQUIPMENT_SLOT_END; ++slot)
-        {
-            Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, slot);
-            if (item)
-            {
-                // Remove the equipped item
-                player->DestroyItem(item->GetBagSlot(), item->GetSlot(), true);
-
-            }
         }
-	    
-        // Iterate over all inventory slots (bag slots 19 to 39)
-        for (uint8 bagSlot = INVENTORY_SLOT_BAG_START; bagSlot < INVENTORY_SLOT_BAG_END; ++bagSlot)
-        {
-            for (uint8 slot = 0; slot < MAX_BAG_SIZE; ++slot)
-            {
-                Item* item = player->GetItemByPos(bagSlot, slot);
-                if (item)
-                {
-                    // Remove the item from the inventory
-                    player->DestroyItem(bagSlot, slot, true);
-
-                }
-            }
-        }  
+	for (uint8 b= INVENTORY_SLOT_ITEM_START; b < INVENTORY_SLOT_ITEM_END; b++)
+	{
+		player=>DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
+	}
+	for  (unit8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
+	{	
+		for (unit8 i = INVENTORY_SLOT_START; i < MAX_BAG_SIZE i++)
+		{
+			player->DestroyItem(c, i, true);
+		}
+	}	
         player->SetMoney(0);
 	player->AddItem(2092, 1); // dagger
         player->AddItem(148, 1); // shirt
@@ -70,6 +55,7 @@ public:
     }
 
 };
+
 
 
 
