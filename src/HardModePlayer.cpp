@@ -7,7 +7,6 @@
 #include "Chat.h"
 // Add player scripts
 class HardModePlayer : public PlayerScript
-
 {
 public:
 	HardModePlayer() : PlayerScript("HardModePlayer") { }
@@ -42,10 +41,9 @@ public:
 		player->AddItem(117, 4); // food
 		player->AddItem(6948, 1); // hearthstone
 	}
-
-
 	void OnLogin(Player* player) override
 	{
+		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -71,10 +69,9 @@ public:
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 	}
-
-
 	void OnMapChanged(Player* player) override
 	{
+		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -92,17 +89,12 @@ public:
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-		auto bp1 = static_cast<int32>(computedAdjustment);
-		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-		player->RemoveAura(89505);
-		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 	}
-
 	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
+		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -120,17 +112,12 @@ public:
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-		auto bp1 = static_cast<int32>(computedAdjustment);
-		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-		player->RemoveAura(89505);
-		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 	}
-
 	void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
 	{
+		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -148,16 +135,12 @@ public:
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-		auto bp1 = static_cast<int32>(computedAdjustment);
-		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-		player->RemoveAura(89505);
-		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 	}
 	void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
 	{
+		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -175,16 +158,9 @@ public:
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-		auto bp1 = static_cast<int32>(computedAdjustment);
-		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-		player->RemoveAura(89505);
-		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 	}
-
-
 
 	//Pet Adjustments
 //	void OnPetAddToWorld(Pet* pet) override
@@ -197,10 +173,20 @@ public:
 //        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
 //		
 //	}
+	void HardmodePlayer::AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
+	{
+	    int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    auto bp1 = static_cast<int32>(computedAdjustment);
+	    auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    player->RemoveAura(ABSORB_SPELL);
+	    player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+	} 
 
 };
-
-
+   
+    
+  
 // Add all scripts in one
 void AddHardModePlayerScripts()
 {
