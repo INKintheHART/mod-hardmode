@@ -15,21 +15,7 @@ public:
     HardModePlayer() : PlayerScript("HardModePlayer") { }
     //OnPlayerKilledByCreature(Creature* /*killer*/, Player* player) 
     void OnPlayerReleasedGhost(Player *player) override
-    {
-        for (uint8 i = 0; i < EQUIPMENT_SLOT_END; ++i)
-        {
-		// Delete player items
-             if (Item* pItem = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-             {
-                  if (pItem->GetTemplate())
-                      continue;
-                  uint8 slot = pItem->GetSlot();
-                  // ChatHandler(player->GetSession()).PSendSysMessage("|cffDA70D6You have lost your |cffffffff|Hitem:%d:0:0:0:0:0:0:0:0|h[%s]|h|r", pItem->GetEntry(), pItem->GetTemplate()->Name1.c_str());
-                  player->DestroyItem(INVENTORY_SLOT_BAG_0, slot, true);   
-
-              }
-		
-        }
+    {		
 	for (uint8 b= INVENTORY_SLOT_ITEM_START; b < INVENTORY_SLOT_ITEM_END; b++)
 	{
 		player->DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
