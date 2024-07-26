@@ -106,7 +106,7 @@ public:
 //        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
 //		
 //	}
-	} 
+	}; 
 
 };
    
