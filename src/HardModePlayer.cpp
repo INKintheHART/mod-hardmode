@@ -173,7 +173,7 @@ public:
 //        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
 //		
 //	}
-	void HardmodePlayer::AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
+	void HardModePlayer::AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
 	{
 	    int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
 	    auto bp1 = static_cast<int32>(computedAdjustment);
