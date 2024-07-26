@@ -20,7 +20,7 @@ public:
 
 	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
 	{	
-		player->DestroyItem(c, i, true);
+		player->DestroyItem(INVENTORY_SLOT_BAG_0, c, true);
 	}
 	    // Equipment
         for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++)
