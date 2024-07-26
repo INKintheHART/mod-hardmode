@@ -202,7 +202,7 @@ public:
         	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
 		
 	}
-}
+};
 
 
 // Add all scripts in one
