@@ -20,7 +20,7 @@ public:
 
 	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++) //iterate each equipped container
 	{	
-		for (uint8 i = INVENTORY_SLOT_START; i < MAX_BAG_SIZE; i++) //iterate each container slot
+		for (uint8 i = INVENTORY_SLOT_BAG_START; i < MAX_BAG_SIZE; i++) //iterate each container slot
 		{
 			player->DestroyItem(c, i, true); // delete
 		}
