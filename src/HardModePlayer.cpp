@@ -50,29 +50,6 @@ public:
 			player->RemoveAura(89507);
 			player->CastSpell(player, 89507, false);
 		}
-		
-		//Vanilla Stats
-		float adjustmentValue = -100.0f * (1.0f - 0.6);
-		float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-		float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
-		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
-		
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-		auto bp1 = static_cast<int32>(computedAdjustment);
-		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-		player->RemoveAura(89505);
-		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
-		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
-		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
-
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    	auto bp1 = static_cast<int32>(computedAdjustment);
-	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    	player->RemoveAura(89505);
-	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnMapChanged(Player* player) override
 	{
@@ -83,24 +60,6 @@ public:
 			player->RemoveAura(89507);
 			player->CastSpell(player, 89507, false);
 		}
-		
-		//Vanilla Stats
-		float adjustmentValue = -100.0f * (1.0f - 0.6);
-		float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-		float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
-		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
-		
-		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
-		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
-
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    	auto bp1 = static_cast<int32>(computedAdjustment);
-	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    	player->RemoveAura(89505);
-	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
@@ -112,23 +71,6 @@ public:
 			player->CastSpell(player, 89507, false);
 		}
 		
-		//Vanilla Stats
-		float adjustmentValue = -100.0f * (1.0f - 0.6);
-		float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-		float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
-		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
-		
-		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
-		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
-
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    	auto bp1 = static_cast<int32>(computedAdjustment);
-	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    	player->RemoveAura(89505);
-	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
 	{
@@ -140,23 +82,6 @@ public:
 			player->CastSpell(player, 89507, false);
 		}
 		
-		//Vanilla Stats
-		float adjustmentValue = -100.0f * (1.0f - 0.6);
-		float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-		float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
-		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
-		
-		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
-		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
-		
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    	auto bp1 = static_cast<int32>(computedAdjustment);
-	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    	player->RemoveAura(89505);
-	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
 	{
@@ -168,23 +93,6 @@ public:
 			player->CastSpell(player, 89507, false);
 		}
 		
-		//Vanilla Stats
-		float adjustmentValue = -100.0f * (1.0f - 0.6);
-		float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-		float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
-		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
-		
-		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
-		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
-		
-		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    	auto bp1 = static_cast<int32>(computedAdjustment);
-	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    	player->RemoveAura(89505);
-	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 
 	//Pet Adjustments
