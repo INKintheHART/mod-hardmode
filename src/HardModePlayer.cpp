@@ -107,7 +107,6 @@ public:
 	        pItem->SetSlot(NULL_SLOT);
 	        pItem->SetState(ITEM_REMOVED, this);
 	    }
-	}
 	    
         player->SetMoney(0);
 	// Add Items    
