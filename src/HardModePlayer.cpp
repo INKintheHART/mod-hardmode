@@ -7,6 +7,7 @@
 #include "Chat.h"
 // Add player scripts
 class HardModePlayer : public PlayerScript
+class HardModePlayer : public PlayerScript
 {
 public:
     HardModePlayer() : PlayerScript("HardModePlayer") { }
@@ -43,7 +44,53 @@ public:
         player->AddItem(117, 4); // food
         player->AddItem(6948, 1); // hearthstone
     }
-};
+}
+
+
+void HardModePlayer::CheckAdjustments(Player* player) const
+{
+	AdjustVanillaStats(player);
+	
+	if (player->getClass() == CLASS_HUNTER)
+	{
+		// Remove the 15% built-in ranged haste that was added to hunters in WotLK
+		// This lets us add haste spells back to quivers
+		player->RemoveAura(RANGED_HASTE_SPELL);
+		player->CastSpell(player, RANGED_HASTE_SPELL, false);
+	}
+}
+
+
+
+void HardModePlayer::AdjustVanillaStats(Player* player) const
+{
+    float adjustmentValue = -100.0f * (1.0f - 0.6);
+    float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+    float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+
+    float adjustmentHealingValue = -100.0f * (1.0f - 0.5);
+    float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+    float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
+
+    AdjustStats(player, computedAdjustment, computedHealingAdjustment);
+}
+
+void HardModePlayer::AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
+{
+    int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+    auto bp1 = static_cast<int32>(computedAdjustment);
+    auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+    player->RemoveAura(ABSORB_SPELL);
+    player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+}
+
+float HardModePlayer::ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue)
+{
+    float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
+    return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+}
+
 
 // Add all scripts in one
 void AddHardModePlayerScripts()
