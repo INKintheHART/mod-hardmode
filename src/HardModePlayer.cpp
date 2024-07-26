@@ -20,18 +20,22 @@ public:
 	{
 		player->DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
 	}
+	    
 	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
 	{	
 		for (uint8 i = INVENTORY_SLOT_BAG_START; i < MAX_BAG_SIZE; i++)
 		{
 			player->DestroyItem(c, i, true);
 		}
-	}	
+	}
+	    // Equipment
         for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++)
         {
                 player->DestroyItem(INVENTORY_SLOT_BAG_0, d, true);
-	}	
+	}
+	    
         player->SetMoney(0);
+	// Add Items    
 	player->AddItem(2092, 1); // dagger
         player->AddItem(148, 1); // shirt
         player->AddItem(147, 1); // pants
