@@ -23,6 +23,7 @@ public:
 		for (uint8 c = INVENTORY_SLOT_Start; i < MAX_BAG_SIZE; i++) //iterate each container slot
 		{
 			player->DestroyItem(c, i, true); // delete
+		}
 	}
 	    // Equipment
         for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++) //iterate each equipment slot
