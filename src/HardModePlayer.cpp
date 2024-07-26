@@ -46,7 +46,6 @@ public:
 
 	void OnLogin(Player* player) override
 	{
-		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -76,7 +75,6 @@ public:
 
 	void OnMapChanged(Player* player) override
 	{
-		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -105,7 +103,6 @@ public:
 
 	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
-		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -134,7 +131,6 @@ public:
 
 	void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
 	{
-		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
@@ -162,7 +158,6 @@ public:
 	}
 	void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
 	{
-		AdjustVanillaStats(player);
 		if (player->getClass() == CLASS_HUNTER)
 		{
 			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
