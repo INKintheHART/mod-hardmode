@@ -39,7 +39,6 @@ public:
         player->AddItem(129, 1); // boots
         player->AddItem(159, 2); // water
         player->AddItem(2504, 1); // bow
-        player->AddItem(2101, 1); // quiver
         player->AddItem(2512, 200); // arrows
         player->AddItem(117, 4); // food
         player->AddItem(6948, 1); // hearthstone
