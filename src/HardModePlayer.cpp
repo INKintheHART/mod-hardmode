@@ -59,7 +59,6 @@ public:
 		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
-		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
 		auto bp1 = static_cast<int32>(computedAdjustment);
 		auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
@@ -93,7 +92,6 @@ public:
 		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
-		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 
@@ -122,7 +120,6 @@ public:
 		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
-		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 
@@ -151,7 +148,6 @@ public:
 		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
-		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 		
@@ -180,7 +176,6 @@ public:
 		float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 		float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 		
-		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 		
