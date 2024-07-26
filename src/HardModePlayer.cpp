@@ -26,6 +26,9 @@ public:
 		{
 			player->DestroyItem(c, i, true);
 		}
+        for (uint8 b= EQUIPMENT_SLOT_START; b < EQUIPMENT_SLOT_END; d++)
+        {
+                player->DestroyItem(INVENTORY_SLOT_BAG_0, d, true);
 	}	
         player->SetMoney(0);
 	player->AddItem(2092, 1); // dagger
