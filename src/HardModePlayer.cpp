@@ -32,7 +32,7 @@ public:
         }
 	for (uint8 b= INVENTORY_SLOT_ITEM_START; b < INVENTORY_SLOT_ITEM_END; b++)
 	{
-		player=>DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
+		player->DestroyItem(INVENTORY_SLOT_BAG_0, b, true);
 	}
 	for  (unit8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
 	{	
