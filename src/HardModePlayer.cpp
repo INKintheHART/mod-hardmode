@@ -36,7 +36,7 @@ public:
 	}
 	for  (uint8 c = INVENTORY_SLOT_BAG_START; c < INVENTORY_SLOT_BAG_END; c++)
 	{	
-		for (uint8 i = INVENTORY_SLOT_BAG_START; i < MAX_BAG_SIZE i++)
+		for (uint8 i = INVENTORY_SLOT_BAG_START; i < MAX_BAG_SIZE; i++)
 		{
 			player->DestroyItem(c, i, true);
 		}
