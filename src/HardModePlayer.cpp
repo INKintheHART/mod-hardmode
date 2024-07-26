@@ -192,16 +192,17 @@ public:
 
 
 	//Pet Adjustments
-	void OnPetAddToWorld(Pet* pet) override
-	{
-		float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->0.6);
-        	float adjustmentApplyPercentPet = (pet->GetLevel() - 10.0f) / 50.0f;
-        	float computedAdjustmentPet = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercentPet) : 0;
-        	float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->0.75);
-        	float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercentPet) : 0;
-        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
-		
-	}
+//	void OnPetAddToWorld(Pet* pet) override
+//	{
+//		float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->0.6);
+//        	float adjustmentApplyPercentPet = (pet->GetLevel() - 10.0f) / 50.0f;
+//        	float computedAdjustmentPet = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercentPet) : 0;
+//        	float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->0.75);
+//        	float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercentPet) : 0;
+//        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
+//		
+//	}
+
 };
 
 
