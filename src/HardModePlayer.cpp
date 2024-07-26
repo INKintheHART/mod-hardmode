@@ -68,6 +68,13 @@ public:
 		player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+
+		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    	auto bp1 = static_cast<int32>(computedAdjustment);
+	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    	player->RemoveAura(89505);
+	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnMapChanged(Player* player) override
 	{
@@ -91,6 +98,13 @@ public:
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+
+		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    	auto bp1 = static_cast<int32>(computedAdjustment);
+	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    	player->RemoveAura(89505);
+	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
@@ -114,6 +128,13 @@ public:
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+
+		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    	auto bp1 = static_cast<int32>(computedAdjustment);
+	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    	player->RemoveAura(89505);
+	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
 	{
@@ -137,6 +158,13 @@ public:
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+		
+		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    	auto bp1 = static_cast<int32>(computedAdjustment);
+	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    	player->RemoveAura(89505);
+	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 	void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
 	{
@@ -160,6 +188,13 @@ public:
 		AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 		//float adjustmentApplyPercent = (float(playerLevel) - 10.0f) / 50.0f;
 		//return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
+		
+		int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+	    	auto bp1 = static_cast<int32>(computedAdjustment);
+	    	auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
+
+	    	player->RemoveAura(89505);
+	    	player->CastCustomSpell(player, 89505, &bp1, nullptr, nullptr, false);
 	}
 
 	//Pet Adjustments
@@ -173,14 +208,6 @@ public:
 //        	AdjustStats(pet, computedAdjustmentPet, hpAdjustment);
 //		
 //	}
-	void HardModePlayer::AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
-	{
-	    int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-	    auto bp1 = static_cast<int32>(computedAdjustment);
-	    auto bp1Healing = static_cast<int32>(computedHealingAdjustment);
-
-	    player->RemoveAura(ABSORB_SPELL);
-	    player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
 	} 
 
 };
