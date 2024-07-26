@@ -27,7 +27,7 @@ public:
 			player->DestroyItem(c, i, true);
 		}
 	}	
-        for (uint8 b= EQUIPMENT_SLOT_START; b < EQUIPMENT_SLOT_END; d++)
+        for (uint8 d= EQUIPMENT_SLOT_START; d < EQUIPMENT_SLOT_END; d++)
         {
                 player->DestroyItem(INVENTORY_SLOT_BAG_0, d, true);
 	}	
