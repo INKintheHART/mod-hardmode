@@ -75,8 +75,8 @@ public:
 		
 	}
 
-	//void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
-    	void OnLevelChanged(Player* player, uint8 oldLevel) override
+	void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
+    	//void OnLevelChanged(Player* player, uint8 oldLevel) override
 	{
 
 		// Remove the 15% built-in ranged haste that was added to hunters in WotLK
