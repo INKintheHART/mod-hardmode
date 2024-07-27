@@ -60,16 +60,6 @@ public:
 			player->RemoveAura(89507);
 			player->CastSpell(player, 89507, false);
 		}
-	}
-	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
-	{
-		if (player->getClass() == CLASS_HUNTER)
-		{
-			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
-			// This lets us add haste spells back to quivers
-			player->RemoveAura(89507);
-			player->CastSpell(player, 89507, false);
-		}
 		
 	}
 	void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
@@ -109,6 +99,13 @@ public:
 
 	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
+		if (player->getClass() == CLASS_HUNTER)
+		{
+			// Remove the 15% built-in ranged haste that was added to hunters in WotLK
+			// This lets us add haste spells back to quivers
+			player->RemoveAura(89507);
+			player->CastSpell(player, 89507, false);
+		}
 		if (player->GetLevel() == 2
 		{
 			AddSpell{133}, //Fireball (Mage)
