@@ -97,7 +97,7 @@ public:
 //		
 //	}
 
-	 void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
+	void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
 	{
 		if (player->getClass() == CLASS_HUNTER)
 		{
@@ -196,7 +196,7 @@ public:
 			player->AddSpell(13549); //Serpent Sting Rank 2 (Hunter)
 			//AddSpell{633}, //Lay on Hands(Paladin) - 20 min CD - Heals a friendly target for an amount equal to the Paladin's maximum health.  If used on self, the Paladin cannot be targeted by Divine Shield, Divine Protection, Hand of Protection, or self-targeted Lay on Hands again for 2 min.  Also cannot be used on self within 30 sec of using Avenging Wrath.
 		}
-	}; 
+	};
 
    
     
