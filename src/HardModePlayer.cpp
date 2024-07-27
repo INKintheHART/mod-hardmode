@@ -183,24 +183,8 @@ public:
 	player->AddItem(5177, 1); // Water Totem
 	player->AddItem(5178, 1); // Air Totem
 	}
-    }
-};
-
-    void OnFirstLogin(Player* player) override
-    {
-        if (sConfigMgr->GetOption<bool>("LearnSpells.OnFirstLogin", 0))
-        {
-            LearnSpellsForNewLevel(player, 1);
-        }
-	if (player->getClass() == CLASS_SHAMAN)
-	{
-	    player->AddItem(5175, 1); // Earth Totem
-	    player->AddItem(5176, 1); // Fire Totem
-	    player->AddItem(5177, 1); // Water Totem
-	    player->AddItem(5178, 1); // Air Totem
-	}
-    }
     
+};
   
 // Add all scripts in one
 void AddHardModePlayerScripts()
