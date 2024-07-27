@@ -83,7 +83,6 @@ public:
 		// This lets us add haste spells back to quivers
 		player->RemoveAura(89507);
 		player->CastSpell(player, 89507, false);
-		if (player->GetLevel()
 		if (player->GetLevel() == 2)
 		{
 			player->AddSpell(133); //Fireball (Mage)
