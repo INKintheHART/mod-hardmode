@@ -204,14 +204,6 @@ public:
 		}
 	}
 
-	void OnFirstLogin(Player* player) override
-    	{
-	player->AddItem(5175, 1); // Earth Totem
-	player->AddItem(5176, 1); // Fire Totem
-	player->AddItem(5177, 1); // Water Totem
-	player->AddItem(5178, 1); // Air Totem
-	}
-    
 };
   
 // Add all scripts in one
