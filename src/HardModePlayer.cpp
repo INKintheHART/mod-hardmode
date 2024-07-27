@@ -160,7 +160,7 @@ public:
 					player->learnSpell(853); // Hammer of Justice (Paladin) // 1 min cooldown - Stuns the target for 3 sec and interrupts non-player spellcasting for 3 sec.
 					player->learnSpell(529); // Lightning Bolt Rank 2 (Shaman)
 					player->learnSpell(5116); // Concussive Shot (Hunter)
-					player->lLearnSpell(5186); // Healing Touch Rank 2(Druid)
+					player->learnSpell(5186); // Healing Touch Rank 2(Druid)
 					player->learnSpell(8044); // Earth Shock Rank 2 (Shaman)
 					player->learnSpell(5782); // Fear (warlock)
 					player->learnSpell(5143); //Qrcane Missiles (mage)
