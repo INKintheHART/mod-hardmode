@@ -106,7 +106,7 @@ public:
 			player->RemoveAura(89507);
 			player->CastSpell(player, 89507, false);
 		}
-		if (player->GetLevel() == 2
+		if (player->GetLevel() == 2)
 		{
 			player->AddSpell(133); //Fireball (Mage)
 			player->AddSpell(348); //Immolate (Warlock)
@@ -124,7 +124,7 @@ public:
 		
 
 		{
-		if (player->GetLevel() == 4
+		if (player->GetLevel() == 4)
 		{
                 	player->AddSpell(20271); // Judgement of Light (Paladin)
                 	player->AddSpell(8071); // Stoneskin Totem (Shaman)
@@ -138,7 +138,7 @@ public:
 			player->AddSpell(589); //Shadow Word: Pain (Priest)
 			player->AddSpell(2484); //Earthbind Totem (Shaman)
 		}
-		if (player->GetLevel() == 6
+		if (player->GetLevel() == 6)
 		{
 			player->AddSpell(1454); // Life Tap (Warlock)
               		player->AddSpell(639); // Holy Light Rank 2 (Paladin)
@@ -152,7 +152,7 @@ public:
 			player->AddSpell(5177); //Wrath rank 2 (druid)
 			player->AddSpell(3044); //Arcane Shot (hunter)
 		}
-		if (player->GetLevel() == 8
+		if (player->GetLevel() == 8)
 		{
 			player->AddSpell(586); // Fade (Priest)
 			player->AddSpell(139); // Renew (Priest)
@@ -170,7 +170,7 @@ public:
 			player->AddSpell(14260); //Raptor Strike Rank 2 (hunter)
 			player->AddSpell(339); //Entangling Roots (Druid)
 		}
-		if (player->GetLevel() == 10
+		if (player->GetLevel() == 10)
 		{
 		        //AddSpell{6991}, // Feed Pet (Hunter)
 			//AddSpell{1515}, // Tame Beast (Hunter)
