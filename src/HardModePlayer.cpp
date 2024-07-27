@@ -74,14 +74,16 @@ public:
 		player->CastSpell(player, 89507, false);
 		
 	}
-	void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
+
+	//void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
+    	void OnLevelChanged(Player* player, uint8 oldLevel) override
 	{
 
 		// Remove the 15% built-in ranged haste that was added to hunters in WotLK
 		// This lets us add haste spells back to quivers
 		player->RemoveAura(89507);
 		player->CastSpell(player, 89507, false);
-
+		if (player->GetLevel()
 		if (player->GetLevel() == 2)
 		{
 			player->AddSpell(133); //Fireball (Mage)
@@ -173,9 +175,31 @@ public:
 			//AddSpell{633}, //Lay on Hands(Paladin) - 20 min CD - Heals a friendly target for an amount equal to the Paladin's maximum health.  If used on self, the Paladin cannot be targeted by Divine Shield, Divine Protection, Hand of Protection, or self-targeted Lay on Hands again for 2 min.  Also cannot be used on self within 30 sec of using Avenging Wrath.
 		}
 	}
+
+	void OnFirstLogin(Player* player) override
+    	{
+	player->AddItem(5175, 1); // Earth Totem
+	player->AddItem(5176, 1); // Fire Totem
+	player->AddItem(5177, 1); // Water Totem
+	player->AddItem(5178, 1); // Air Totem
+	}
+    }
 };
 
-   
+    void OnFirstLogin(Player* player) override
+    {
+        if (sConfigMgr->GetOption<bool>("LearnSpells.OnFirstLogin", 0))
+        {
+            LearnSpellsForNewLevel(player, 1);
+        }
+	if (player->getClass() == CLASS_SHAMAN)
+	{
+	    player->AddItem(5175, 1); // Earth Totem
+	    player->AddItem(5176, 1); // Fire Totem
+	    player->AddItem(5177, 1); // Water Totem
+	    player->AddItem(5178, 1); // Air Totem
+	}
+    }
     
   
 // Add all scripts in one
