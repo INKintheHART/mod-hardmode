@@ -154,7 +154,7 @@ public:
 					player->learnSpell(586); // Fade (Priest)
 					player->learnSpell(139); // Renew (Priest)
 					player->learnSpell(1152); // Purify (Paladin)
-					player->learnSpell(5730; // Stoneclaw Totem (Shaman)
+					player->learnSpell(5730); // Stoneclaw Totem (Shaman)
 					player->learnSpell(118); // Polymorph (mage)
 					player->learnSpell(205); // Frostbolt rank 2 (mage)
 					player->learnSpell(853); // Hammer of Justice (Paladin) // 1 min cooldown - Stuns the target for 3 sec and interrupts non-player spellcasting for 3 sec.
